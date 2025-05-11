@@ -51,7 +51,7 @@ fn handleClient(server: *std.net.Server) void {
       };
 
       // Send response
-      req.respond("bonjour", .{}) catch |err| {
+      req.respond(req.head.target, .{}) catch |err| {
           std.debug.print("Error while sending response: {any}\n", .{err});
           return;
       };
